@@ -51,6 +51,9 @@ function RepoGrid(props) {
     </ul>
   )
 }
+RepoGrid.propTypes = {
+  repos: PropTypes.array.isRequired,
+}
 
 class Popular extends Component {
 
