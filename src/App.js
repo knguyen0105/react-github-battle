@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 var PropTypes = require('prop-types');
 var api = require('./utils/api.js');
 var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
-var Link = ReactRouter.Link;
 var NavLink = ReactRouter.NavLink;
 var Switch = ReactRouter.Switch;
 var Home = require('./Home.js');
