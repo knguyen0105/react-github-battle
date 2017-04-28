@@ -3,6 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 var PropTypes = require('prop-types');
 var api = require('./utils/api.js');
+var ReactRouter = require('react-router-dom');
+var Router = ReactRouter.BrowserRouter;
+var Route = ReactRouter.Route;
+var Link = ReactRouter.Link;
+var NavLink = ReactRouter.NavLink;
+var Switch = ReactRouter.Switch;
+var Home = require('./Home.js');
+var Battle = require('./Battle.js');
+
 
 function SelectLanguage(props) {
     var languages = ['All','Javascript','Ruby','Java','CSS','Python'];
@@ -101,12 +110,38 @@ class Popular extends Component {
   }
 }
 
+function Nav() {
+  return (
+    <ul className='nav'>
+      <li>
+        <NavLink exact activeClassName='active' to='/'>Home </NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName='active' to='/battle'>Battle </NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName='active' to='/popular'>Popular </NavLink>
+      </li>
+    </ul>
+  )
+}
+
 class App extends Component {
   render() {
     return (
+      <Router>
       <div className='container'>
-        <Popular />
+        <Nav />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/battle' component={Battle} />
+          <Route path='/popular' component={Popular} />
+          <Route render={function(){
+            return <p>Not Found</p>
+            }} />
+        </Switch>
       </div>
+      </Router>
     );
   }
 }
