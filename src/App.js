@@ -9,7 +9,7 @@ var NavLink = ReactRouter.NavLink;
 var Switch = ReactRouter.Switch;
 var Home = require('./Home.js');
 var Battle = require('./Battle.js');
-
+var Result = require('./Result.js');
 
 function SelectLanguage(props) {
     var languages = ['All','Javascript','Ruby','Java','CSS','Python'];
@@ -133,6 +133,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/battle' component={Battle} />
+          <Route path='/battle/results' component={Result} />
           <Route path='/popular' component={Popular} />
           <Route render={function(){
             return <p>Not Found</p>
