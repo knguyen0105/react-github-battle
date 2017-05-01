@@ -10,6 +10,8 @@ var Switch = ReactRouter.Switch;
 var Home = require('./Home.js');
 var Battle = require('./Battle.js');
 var Result = require('./Result.js');
+var Loading = require('./Loading.js');
+
 
 function SelectLanguage(props) {
     var languages = ['All','Javascript','Ruby','Java','CSS','Python'];
@@ -100,9 +102,11 @@ class Popular extends Component {
         selectedLanguage={this.state.selectedLanguage} 
         onSelect={this.updateLanguage}
       />
-      {this.state.repos === null ? 
-      <p>Loading</p> :
-      <RepoGrid repos={this.state.repos}/>}      
+      {!this.state.repos  ? 
+        
+        <Loading /> : 
+
+        <RepoGrid repos={this.state.repos} />}      
       </div>
     )
   }
